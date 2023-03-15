@@ -1,0 +1,27 @@
+{%extends 'base.html'%}
+{%block title%}Sale{%endblock%}
+{%block content%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sale</title>
+</head>
+<body>
+    <h1>Sell Item</h1>
+  <form action="sell_item/" method="post">
+       {%csrf_token%}
+      <label class="form-label">Item</label>
+    <select name="item" class="form-select">
+        {%for item in my_items%}
+        <option value="{{item.id}}">{{item.item_name}}</option>
+        {%endfor%}
+    </select>
+      <label class="form-label">Quantity</label>
+    <input name="quantity" class="form-control">
+    <br>
+      <input type="submit" value="Submit" class="btn btn-primary btn-lg">
+  </form>
+</body>
+</html>
+{%endblock%}

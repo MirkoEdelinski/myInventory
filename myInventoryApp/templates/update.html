@@ -1,0 +1,29 @@
+{%extends 'base.html'%}
+{%block title%}Update{%endblock%}
+{%block content%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Update</title>
+</head>
+<body>
+    <h1>Update Item</h1>
+  <form action="update_item/{{my_items.id}}" method="post">
+    {%csrf_token%}
+    <label class="form-label">Item Name</label>
+    <input name="name" value="{{my_items.item_name}}" class="form-control">
+    <label class="form-label">Stock</label>
+    <input name="stock" value="{{my_items.item_stock}}" class="form-control">
+    <label class="form-label">Item Description</label>
+    <input name="description" value="{{my_items.item_desc}}" class="form-control">
+    <label class="form-label">Vendor Name</label>
+    <input name="vendor" value="{{my_items.vendor_name}}" class="form-control">
+    <label for="formFile" class="form-label">Item Image</label>
+    <input class="form-control" type="file" value="" id="formFile">
+    <br>
+    <input type="submit" value="Update" class="btn btn-primary btn-lg">
+  </form>
+</body>
+</html>
+{%endblock%}
