@@ -1,0 +1,32 @@
+{%extends 'base.html'%}
+{%block title%}Inventory{%endblock%}
+{%block content%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Inventory</title>
+</head>
+<body>
+    <h1>Items</h1>
+    <table class="table table-dark table-hover">
+        <th>ID</th>
+        <th>Name</th>
+        <th>Stock</th>
+        <th>Description</th>
+        <th>Vendor</th>
+        <th></th>
+    {% for x in my_items %}
+    <tr class="clickable-row" onclick="window.location='update/{{x.id}}'">
+    <td>{{x.id}}</a></td>
+    <td>{{ x.item_name }}</td>
+        <td>{{ x.item_stock }}</td>
+    <td>{{ x.item_desc }}</td>
+    <td>{{ x.vendor_name }}</td>
+        <td><a href="delete/{{x.id}}" class="link-light">Delete</a></td>
+    </tr>
+    {% endfor %}
+    </table>
+</body>
+</html>
+{%endblock%}

@@ -1,0 +1,30 @@
+{%extends 'base.html'%}
+{%block title%}Create Item{%endblock%}
+{%block content%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add an Item</title>
+</head>
+<body>
+  <h1>Add an Item</h1>
+  <form action="add_item/" method="post">
+    {%csrf_token%}
+     <label class="form-label">Item Name</label>
+    <input name="name" class="form-control">
+    <label class="form-label">Stock</label>
+    <input name="stock" class="form-control">
+     <label class="form-label">Item Description</label>
+    <input name="description" class="form-control">
+    <label class="form-label">Vendor Name</label>
+    <input name="vendor" class="form-control">
+      <label for="formFile" class="form-label">Item Image</label>
+    <input class="form-control" type="file" id="formFile">
+    <br>
+    <input type="submit" value="Submit" class="btn btn-primary btn-lg">
+  </form>
+
+</body>
+</html>
+{%endblock%}
